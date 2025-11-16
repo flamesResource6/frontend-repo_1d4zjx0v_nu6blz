@@ -5,42 +5,58 @@
 @layer base {
   :root {
     --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-geist: 'Geist', system-ui, sans-serif;
-    --font-geist-mono: 'Geist Mono', monospace;
-    --font-mona: 'Mona Sans', system-ui, sans-serif;
-    --font-ibm-plex: 'IBM Plex Sans', system-ui, sans-serif;
-    --font-manrope: 'Manrope', system-ui, sans-serif;
   }
 
   html {
     font-family: var(--font-sans);
     font-feature-settings: "rlig" 1, "calt" 1;
+    color-scheme: light;
   }
 
   body {
-    @apply antialiased;
+    @apply antialiased bg-white;
   }
 }
 
-/* Custom utility classes for shadcn/ui patterns */
+/* App-wide premium background */
 @layer utilities {
-  .animate-in {
-    animation-name: animateIn;
-    animation-duration: 350ms;
-    --tw-enter-opacity: initial;
-    --tw-enter-scale: initial;
-    --tw-enter-rotate: initial;
-    --tw-enter-translate-x: initial;
-    --tw-enter-translate-y: initial;
+  .bg-luxe {
+    background:
+      radial-gradient(60rem 60rem at 10% -10%, rgba(16, 185, 129, .18), transparent 60%),
+      radial-gradient(50rem 50rem at 110% 20%, rgba(132, 204, 22, .16), transparent 60%),
+      radial-gradient(40rem 40rem at 30% 120%, rgba(5, 150, 105, .18), transparent 60%),
+      linear-gradient(180deg, #fafdf8 0%, #f7fbf5 40%, #f5faf2 100%);
   }
 
-  .animate-out {
-    animation-name: animateOut;
-    animation-duration: 350ms;
-    --tw-exit-opacity: initial;
-    --tw-exit-scale: initial;
-    --tw-exit-rotate: initial;
-    --tw-exit-translate-x: initial;
-    --tw-exit-translate-y: initial;
+  /* subtle monochrome film grain */
+  .grain {
+    position: relative;
   }
+  .grain:before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="256" height="256" filter="url(%23n)" opacity="0.035"/></svg>');
+    background-size: 256px 256px;
+    z-index: 0;
+  }
+
+  /* gradient border utility */
+  .gradient-border {
+    position: relative;
+  }
+  .gradient-border:before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(120deg, rgba(16,185,129,.6), rgba(132,204,22,.6), rgba(16,185,129,.6));
+    filter: blur(0.5px);
+    z-index: -1;
+  }
+
+  /* smooth reveal keyframes */
+  .animate-in { animation: animateIn 520ms cubic-bezier(.21,.65,.29,1) both; }
+  @keyframes animateIn { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
 }

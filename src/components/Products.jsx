@@ -29,19 +29,19 @@ const products = [
 
 export default function Products() {
   return (
-    <section id="products" className="relative py-24">
+    <section id="products" className="relative py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex items-end justify-between gap-6">
           <div>
-            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-gray-900">The Collection</h2>
-            <p className="mt-3 text-gray-600">Three precision formulas. One seamless routine.</p>
+            <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight text-gray-900">The Collection</h2>
+            <p className="mt-3 text-gray-600">Three precision formulas. One seamless ritual.</p>
           </div>
           <a href="#checkout" className="hidden sm:inline-flex items-center rounded-full bg-gray-900 px-5 py-2 text-white font-medium hover:bg-gray-800">Proceed to checkout</a>
         </div>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {products.map((p, idx) => (
-            <motion.div key={p.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.05 }} className="group relative overflow-hidden rounded-3xl bg-white ring-1 ring-black/5 shadow-sm">
+            <motion.div key={p.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.05 }} className="group relative overflow-hidden rounded-[1.75rem] bg-white ring-1 ring-black/5 shadow-sm">
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img src={p.img} alt={p.name} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/0" />

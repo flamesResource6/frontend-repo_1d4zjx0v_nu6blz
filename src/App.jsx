@@ -7,7 +7,7 @@ import CTA from './components/CTA'
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-lime-50 text-gray-900">
+    <div className="min-h-screen bg-luxe grain text-gray-900">
       <Navbar />
       <main>
         <Hero />

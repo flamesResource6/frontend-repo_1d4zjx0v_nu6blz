@@ -20,16 +20,16 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="reviews" className="relative py-24">
+    <section id="reviews" className="relative py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-gray-900">Loved by discerning growers</h2>
+          <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight text-gray-900">Loved by discerning growers</h2>
           <p className="mt-3 text-gray-600">Real results from people who obsess over plants as much as we do.</p>
         </div>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((t) => (
-            <div key={t.name} className="rounded-3xl border border-black/5 bg-white p-6 shadow-sm">
+            <div key={t.name} className="rounded-[1.75rem] border border-black/5 bg-white p-6 shadow-sm">
               <div className="flex items-center gap-1 text-emerald-600">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} className="h-4 w-4 fill-current" />
